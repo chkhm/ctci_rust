@@ -32,11 +32,12 @@ fn is_unique_sort(s : &mut str) -> bool {
     let mut sorted_s : Vec<char> = s.chars().collect();
     sorted_s.sort_unstable();
 
-    let last_char = sorted_s[0];
+    let mut last_char = sorted_s[0];
     for c in &sorted_s[1..] {
         if *c == last_char {
             return false;
         }
+        last_char = *c;
     }
     true
 }
