@@ -1,8 +1,8 @@
 # ctci_rust: Cracking the Coding Interview in Rust
 
-For refreshing coding skills and bumping up Rust knowledge I'm solving some of the coding Questions from the [book "Cracking the Coding Interview"]{https://www.crackingthecodinginterview.com/} by [Gayle Laakmann McDowell]{https://www.crackingthecodinginterview.com/author.html}.
+For refreshing coding skills and bumping up Rust knowledge I'm solving some of the coding Questions from the [book "Cracking the Coding Interview"](https://www.crackingthecodinginterview.com/) by [Gayle Laakmann McDowell](https://www.crackingthecodinginterview.com/author.html).
 
-Admittedly, I'm getting some help from the totally amazing [Warp Terminal]{https://www.warp.dev/}. I asked it to either write some additional tests or to improve the coding style to make it look more "rusty".
+Admittedly, I'm getting some help from the totally amazing [Warp Terminal](https://www.warp.dev/)◊. I asked it to either write some additional tests or to improve the coding style to make it look more "rusty".
 
 For some questions I also asked Warp to solve the riddle. It naturally has no problems... It also recognizes that it is a riddle from the book. It might be interesting to challenge Warp with an unknow riddle.
 
