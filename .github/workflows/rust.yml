@@ -11,15 +11,16 @@ env:
 
 jobs:
   build:
-    defaults:
-      run:
-        working-directory: ctci01_08_zero_matrix
-        
+    name: Matrix build
     runs-on: ubuntu-latest
+    strategy:
+        matrix: { dir: ['ctci01_08_zero_matrix', 'ctci01_05_one_away', 'ctci01_08_zero_matrix', 'ctci01_09_string_rotation'] }
 
     steps:
     - uses: actions/checkout@v4
     - name: Build
+      working-directory: ${{ matrix.dir }}
       run: cargo build --verbose
     - name: Run tests
+      working-directory: ${{ matrix.dir }}
       run: cargo test --verbose
