@@ -15,7 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix: { dir: ['ctci01_01_unique_chars', 'ctci01_05_one_away', 'ctci01_08_zero_matrix', 
-                        'ctci01_09_string_rotation', 'ctci02_01_remove_duplicates'] }
+                        'ctci01_09_string_rotation', 'ctci02_01_remove_duplicates'] ,
+                  toolchain: [nightly]
+                }
 
     steps:
     - uses: actions/checkout@v4
