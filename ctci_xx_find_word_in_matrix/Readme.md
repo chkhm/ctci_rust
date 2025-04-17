@@ -29,7 +29,7 @@ z a b c d e
 Find all occurrences of the word: "anapp".
 
 
-## Solution idea 1
+## Solution idea 1: backtracking over the matric
 
 Use a recursive backtracking approach:
 
@@ -61,7 +61,7 @@ Worst Case Complexity:
 Complexity: `O(4^n)` i.e., exponential
 
 
-## Solution idea 2
+## Solution idea 2: backtracking over the characters in the word
 
 Can we do something with a hashmap or hashset? How about we create a hashset of positions for every character in the word. We can then do a backtracking algorithm over all the hashmaps:
 
@@ -72,7 +72,7 @@ Recursive_search(idx, path)
   - write path to result
   - return
 - for each pos in hashset[idx]:
-  -  if (pos is neighbor path[-1])  and  (pos is not in the path):
+  -  if (pos is neighbor of path[-1])  and  (pos is not in the path):
      -  recursive_search(idx+1, path + pos)
 
 Complexity:
