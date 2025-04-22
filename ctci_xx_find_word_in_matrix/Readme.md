@@ -63,7 +63,7 @@ Complexity: `O(4^n)` i.e., exponential
 
 ## Solution idea 2: backtracking over the characters in the word
 
-Can we do something with a hashmap or hashset? How about we create a hashset of positions for every character in the word. We can then do a backtracking algorithm over all the hashmaps:
+Can we reduce the effort by back tracking over the word rather than the matrix positions? Chances are this is the smaller set:
 
 - Iterate over all fields in the matrix and add the positions to the hashmaps of all chars in the word
 
