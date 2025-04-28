@@ -1,67 +1,9 @@
-use std::{cell::RefCell, collections::HashSet, rc::Rc};
+use rcgraph::{Graph, add_edge, find_path, new_graph, new_node, print_nodes};
 
-struct Node {
-    value : i32,
-    edges : Vec<Edge>,
-}
-
-struct Edge {
-    weight : i32,
-    destination : Rc<RefCell<Node>>,
-}
-
-struct Graph {
-    nodes : Vec<Rc<RefCell<Node>>>,
-}
-
-fn new_graph() -> Graph {
-    Graph {
-        nodes : vec![],
-    }
-}
-
-fn new_node(g : &mut Graph, value : i32) -> Rc<RefCell<Node>> {
-    let n = Rc::new(RefCell::new(Node {
-        value,
-        edges : vec![],
-    }));
-    g.nodes.push(n.clone());
-    n
-}
-
-fn add_edge(g : &mut Graph, node1 : Rc<RefCell<Node>>, node2 : Rc<RefCell<Node>>, weight : i32) {
-
-    node1.borrow_mut().edges.push(Edge {
-        weight,
-        destination : node2,
-    });
-}
-
-fn print_nodes(g : &Graph) {
-    for n in g.nodes.iter() {
-        print!("val: {}, edges: ", n.borrow().value);
-        for e in n.borrow().edges.iter() {
-            print!("(w: {} d: {}) ", e.weight, e.destination.borrow().value);
-        }
-        println!();
-    }
-}
-
-fn find_recursive_path(g : &Graph, start_node : Rc<RefCell<Node>>, dest_node : Rc<RefCell<Node>>, 
-    visited_nodes : &HashSet<Rc<RefCell<Node>>>, path : &Vec<Rc<RefCell<Node>>>) -> bool {
-
-    if start_node.as_ptr() == dest_node.as_ptr() {
-        return true;
-    }
-    if visited_nodes.contains(start_node) {
-        
-    }
-
-    false
-}
+pub mod rcgraph;
 
 fn main() {
-    let mut g : Graph = new_graph();
+    let mut g: Graph = new_graph();
     let n1 = new_node(&mut g, 1);
     let n2 = new_node(&mut g, 2);
     let n3 = new_node(&mut g, 3);
@@ -81,8 +23,6 @@ fn main() {
     add_edge(&mut g, n6.clone(), n4.clone(), 10);
     print_nodes(&g);
 
-
-    //let result = find_path(&g, n1, n6);
-    //println!("Result: {}", result);
-
+    let result = find_path(&g, n1, n6);
+    println!("Result: {}", result);
 }
