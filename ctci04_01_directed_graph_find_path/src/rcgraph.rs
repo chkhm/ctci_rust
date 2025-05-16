@@ -12,21 +12,49 @@ fn get_id() -> usize {
     COUNTER.fetch_add(1, Ordering::Relaxed)
 }
 
+type Vedge = Vec<Edge>;
+
 pub struct Node {
     id: usize,
     value: i32,
-    edges: Vec<Edge>,
+    edges: Vedge,
 }
+
+impl Default for Node {
+    fn default() -> Self {
+        Node {
+            id: get_id(),
+            value: 0,
+            edges: Vec::new(),
+        }
+    }
+}
+
+impl Node {
+    pub fn new() -> Self {
+        Default::default()
+    }
+    pub fn from_val_edge(v: i32, e: Vec<Edge>) -> Self {
+        Node {
+            id: get_id(),
+            value: v,
+            edges: e,
+        }
+    }
+}
+
+type RCnode = Rc<RefCell<Node>>;
+type VecRCnode = Vec<RCnode>;
 
 pub struct Edge {
     // id: usize,
     weight: i32,
-    destination: Rc<RefCell<Node>>,
+    destination: RCnode,
 }
 
 pub struct Graph {
     // id: usize,
-    nodes: Vec<Rc<RefCell<Node>>>,
+    nodes: VecRCnode,
 }
 
 pub fn new_graph() -> Graph {

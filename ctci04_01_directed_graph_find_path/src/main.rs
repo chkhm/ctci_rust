@@ -1,8 +1,17 @@
-use rcgraph::{Graph, add_edge, find_path, new_graph, new_node, print_nodes};
+use std::{fs::File, io::BufReader};
 
+use graphtraits::GraphCrud;
+use osmgraph::{create_osm_graph, parse_osm};
+use rcgraph::{Graph, add_edge, find_path, new_graph, new_node, print_nodes};
+use xml::EventReader;
+
+pub mod graph;
+pub mod graphtraits;
+pub mod idgraph;
+pub mod osmgraph;
 pub mod rcgraph;
 
-fn main() {
+fn main() -> std::io::Result<()> {
     let mut g: Graph = new_graph();
     let n1 = new_node(&mut g, 1);
     let n2 = new_node(&mut g, 2);
@@ -25,4 +34,22 @@ fn main() {
 
     let result = find_path(&g, n1, n6);
     println!("Result: {}", result);
+
+    let file = File::open("./test.osm")?;
+    let reader = BufReader::new(file);
+    let mut reader = EventReader::new(reader);
+    let mut osmgraph = create_osm_graph();
+    parse_osm(&mut reader, &mut osmgraph);
+    let n = osmgraph.get_node_val(8945281129).unwrap();
+    println!(
+        "node id: {}, lat: {}, lon: {}, version: {}",
+        n.id, n.lat, n.lon, n.version
+    );
+
+    let e = osmgraph.get_edge(1).unwrap();
+    println!("Edge 1: from: {}, to: {}, weight: {}", e.0, e.1, e.2);
+    let e = osmgraph.get_edge(2).unwrap();
+    println!("Edge 2: from: {}, to: {}, weight: {}", e.0, e.1, e.2);
+
+    Ok(())
 }

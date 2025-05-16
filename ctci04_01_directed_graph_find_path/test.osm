@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="osmconvert 0.8.11" timestamp="2025-05-03T20:00:00Z">
+	<bounds minlat="41.74" minlon="-71.5299999" maxlat="41.9" maxlon="-71.3099999"/>
+	<node id="4" lat="41.8291466" lon="-71.4152947" version="1">
+		<tag k="man_made" v="manhole"/>
+	</node>
+	<node id="12797467301" lat="41.8440018" lon="-71.4090477" version="1"/>
+	<node id="622597649" lat="41.8190439" lon="-71.3848753" version="1">
+		<tag k="highway" v="motorway_junction"/>
+		<tag k="old_ref" v="4"/>
+		<tag k="ref" v="1B-C"/>
+	</node>
+	<node id="622597678" lat="41.8179679" lon="-71.3957065" version="1"/>
+	<node id="622597682" lat="41.818291" lon="-71.3927478" version="1">
+		<tag k="direction" v="both"/>
+		<tag k="traffic_calming" v="hump"/>
+	</node>
+	<node id="8945281129" lat="41.8190362" lon="-71.3844366" version="1"/>
+		<node id="8945281164" lat="41.8190314" lon="-71.384233" version="1"/>
+	<node id="8945281173" lat="41.8190271" lon="-71.3841106" version="1"/>
+		<node id="8945258504" lat="41.8190218" lon="-71.3839794" version="1"/>
+	<node id="8945258512" lat="41.8190145" lon="-71.3838547" version="1"/>
+	<node id="8945281120" lat="41.8190042" lon="-71.3837226" version="1"/>
+	<node id="8945281128" lat="41.8189936" lon="-71.3836005" version="1"/>
+	<node id="1071046445" lat="41.8189815" lon="-71.3834839" version="1"/>
+	<node id="8945281136" lat="41.8189708" lon="-71.3833888" version="1"/>
+	<node id="8945281144" lat="41.8189542" lon="-71.3832631" version="1"/>
+	<node id="622597718" lat="41.8189336" lon="-71.3831271" version="1"/>
+	<way id="5386504" version="1">
+		<nd ref="622597649"/>
+		<nd ref="8945281129"/>
+		<nd ref="8945281164"/>
+		<nd ref="8945281173"/>
+		<nd ref="8945258504"/>
+		<nd ref="8945258512"/>
+		<nd ref="8945281120"/>
+		<nd ref="8945281128"/>
+		<nd ref="1071046445"/>
+		<nd ref="8945281136"/>
+		<nd ref="8945281144"/>
+		<nd ref="622597718"/>
+		<tag k="bicycle" v="no"/>
+		<tag k="bridge" v="yes"/>
+		<tag k="foot" v="no"/>
+		<tag k="hgv" v="designated"/>
+		<tag k="highway" v="motorway"/>
+		<tag k="horse" v="no"/>
+		<tag k="lanes" v="3"/>
+		<tag k="layer" v="1"/>
+		<tag k="maxspeed" v="50 mph"/>
+		<tag k="name" v="Washington Bridge"/>
+		<tag k="name:etymology:wikidata" v="Q23"/>
+		<tag k="oneway" v="no"/>
+		<tag k="ref" v="I 195;US 1A;US 6"/>
+		<tag k="surface" v="asphalt"/>
+		<tag k="wikipedia" v="en:Washington Bridge (Providence, Rhode Island)"/>
+	</way>
+</osm>
