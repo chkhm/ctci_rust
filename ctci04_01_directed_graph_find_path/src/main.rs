@@ -1,10 +1,12 @@
 use std::{fs::File, io::BufReader};
 
 use graphtraits::GraphCrud;
+use graphtraits::GraphDisplay;
 use osmgraph::{create_osm_graph, parse_osm};
 use rcgraph::{Graph, add_edge, find_path, new_graph, new_node, print_nodes};
 use xml::EventReader;
 
+pub mod gps_utils;
 pub mod graph;
 pub mod graphtraits;
 pub mod idgraph;
@@ -51,5 +53,13 @@ fn main() -> std::io::Result<()> {
     let e = osmgraph.get_edge(2).unwrap();
     println!("Edge 2: from: {}, to: {}, weight: {}", e.0, e.1, e.2);
 
+    let result = osmgraph.find_edges_from(12307697010).unwrap();
+    for edge_id in result {
+        let edge = osmgraph.get_edge(edge_id).unwrap();
+        println!(
+            "edge_id: {} from: {}, to: {}, weight: {}",
+            edge_id, edge.0, edge.1, edge.2
+        );
+    }
     Ok(())
 }

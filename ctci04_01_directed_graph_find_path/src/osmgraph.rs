@@ -2,6 +2,7 @@ use std::{collections::HashMap, fs::File, io::BufReader};
 
 use xml::{EventReader, attribute::OwnedAttribute, reader::XmlEvent};
 
+use crate::gps_utils::calculate_distance;
 use crate::{graph::Graph, graphtraits::GraphCrud};
 
 pub struct OsmNode {
@@ -9,6 +10,16 @@ pub struct OsmNode {
     pub lat: f64,
     pub lon: f64,
     pub version: i32,
+}
+
+impl std::fmt::Display for OsmNode {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{{ id: {}, lat: {}, lon: {}, version: {} }}",
+            self.id, self.lat, self.lon, self.version
+        )
+    }
 }
 
 pub fn create_osm_graph() -> Graph<OsmNode> {
@@ -115,8 +126,11 @@ fn parse_osm_way_event(parser: &mut EventReader<BufReader<File>>, g: &mut Graph<
     let mut it = nd_vec.iter();
     let mut from = *(it.next().unwrap());
     for nd in it {
-        let weight = 1;
-        g.new_edge(from, *nd, weight);
+        let from_node = g.get_node_val(from).unwrap();
+        let nd_node = g.get_node_val(*nd).unwrap();
+        let weight = calculate_distance(from_node.lat, from_node.lon, nd_node.lat, nd_node.lon);
+        println!("from: {}, to: {}, weight: {}", from, *nd, weight);
+        g.new_edge(from, *nd, (weight * 100.0) as i32); // turning the distance to mm
         from = *nd;
     }
 }

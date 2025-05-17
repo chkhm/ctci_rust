@@ -26,6 +26,83 @@
 	<node id="8945281136" lat="41.8189708" lon="-71.3833888" version="1"/>
 	<node id="8945281144" lat="41.8189542" lon="-71.3832631" version="1"/>
 	<node id="622597718" lat="41.8189336" lon="-71.3831271" version="1"/>
+
+	<node id="65638385" lat="41.8972118" lon="-71.3694164" version="1"/>
+	<node id="9446111610" lat="41.8971876" lon="-71.3693341" version="1"/>
+	<node id="9446111610" lat="41.8971876" lon="-71.3693341" version="1"/>
+	<node id="9446111611" lat="41.8971668" lon="-71.3692581" version="1"/>
+	<node id="7540467764" lat="41.897121" lon="-71.3690802" version="1"/>
+	<node id="65664181" lat="41.8971135" lon="-71.3690445" version="1"/>
+	<node id="9446135018" lat="41.8971098" lon="-71.369011" version="1"/>
+	<node id="9446135019" lat="41.8971089" lon="-71.3689796" version="1"/>
+	<node id="65671907" lat="41.8971115" lon="-71.3689474" version="1"/>
+	<node id="9446135020" lat="41.8971153" lon="-71.3689173" version="1"/>
+	<node id="65639804" lat="41.8989388" lon="-71.3535712" version="1">
+		<tag k="bus" v="yes"/>
+		<tag k="name" v="Market Basket (South Attleboro)"/>
+		<tag k="network" v="RIPTA"/>
+		<tag k="operator" v="Rhode Island Public Transit Authority"/>
+		<tag k="public_transport" v="stop_position"/>
+	</node>
+	<node id="65639911" lat="41.8971846" lon="-71.3685288" version="1"/>
+	<node id="65705790" lat="41.8976727" lon="-71.3657072" version="1"/>
+	<node id="65650447" lat="41.8979708" lon="-71.363983" version="1"/>
+	<node id="8370489793" lat="41.8980391" lon="-71.3635883" version="1"/>
+	<node id="65674905" lat="41.8982417" lon="-71.3624163" version="1"/>
+
+	<node id="12307697010" lat="41.8989601" lon="-71.3536522" version="1"/>
+	<node id="65678108" lat="41.8989776" lon="-71.3535897" version="1">
+		<tag k="crossing" v="zebra;uncontrolled"/>
+		<tag k="highway" v="crossing"/>
+	</node>
+	<node id="12307697011" lat="41.8989962" lon="-71.3535232" version="1"/>
+
+<node id="12307696980" lat="41.8975876" lon="-71.3564121" version="1"/>
+	<node id="12307696981" lat="41.8976205" lon="-71.3562284" version="1"/>
+	<node id="12307696982" lat="41.8976405" lon="-71.3562277" version="1"/>
+	<node id="12307696983" lat="41.89771" lon="-71.3558624" version="1"/>
+	<node id="12307696984" lat="41.8977958" lon="-71.3553299" version="1"/>
+	<node id="12307696985" lat="41.897758" lon="-71.3555648" version="1"/>
+	<node id="12307696986" lat="41.8977352" lon="-71.3555555" version="1"/>
+	<node id="12307696987" lat="41.8977729" lon="-71.3553401" version="1"/>
+	<node id="12307696988" lat="41.8976214" lon="-71.3561924" version="1"/>
+	<node id="12307696989" lat="41.8980061" lon="-71.3534068" version="1"/>
+	<node id="12307696990" lat="41.8974724" lon="-71.3563523" version="1"/>
+	<node id="12307696991" lat="41.898959" lon="-71.3553523" version="1"/>
+	<node id="12307696992" lat="41.898762" lon="-71.3553028" version="1"/>
+	<node id="12307696993" lat="41.8979008" lon="-71.3546298" version="1"/>
+	<node id="12307696994" lat="41.8980916" lon="-71.353519" version="1"/>
+	<node id="12307696995" lat="41.8981585" lon="-71.3535009" version="1"/>
+	<node id="12307696996" lat="41.8982363" lon="-71.3534019" version="1"/>
+	<node id="12307696997" lat="41.8982442" lon="-71.3533745" version="1"/>
+	<node id="12307696998" lat="41.8983581" lon="-71.3533547" version="1"/>
+	<node id="12307696999" lat="41.8983144" lon="-71.3533716" version="1">
+		<tag k="crossing" v="uncontrolled"/>
+		<tag k="highway" v="crossing"/>
+	</node>
+	<node id="12307697000" lat="41.8983412" lon="-71.3533433" version="1"/>
+	<node id="12307697001" lat="41.8984205" lon="-71.3533775" version="1"/>
+	<node id="12307697002" lat="41.8985032" lon="-71.3534026" version="1"/>
+	<node id="12307697003" lat="41.8986191" lon="-71.3534309" version="1"/>
+	<node id="12307697004" lat="41.8987938" lon="-71.3534598" version="1"/>
+	<node id="12307697005" lat="41.8988873" lon="-71.3534828" version="1"/>
+	<node id="12307697006" lat="41.8989345" lon="-71.3534929" version="1"/>
+	<node id="12307697007" lat="41.8989912" lon="-71.353523" version="1"/>
+	<node id="12307697008" lat="41.8990205" lon="-71.3535245" version="1"/>
+	<node id="12307697009" lat="41.899083" lon="-71.3534236" version="1"/>
+	<node id="12307697010" lat="41.8989601" lon="-71.3536522" version="1"/>
+	<node id="12307697011" lat="41.8989962" lon="-71.3535232" version="1"/>
+	<node id="12307697012" lat="41.8990954" lon="-71.3533304" version="1"/>
+	<node id="12307697013" lat="41.89909" lon="-71.3533705" version="1">
+		<tag k="crossing" v="uncontrolled"/>
+		<tag k="highway" v="crossing"/>
+	</node>
+	<node id="12307697014" lat="41.8991103" lon="-71.3533243" version="1"/>
+	<node id="12307697015" lat="41.8991258" lon="-71.3533127" version="1"/>
+
+	<node id="9446135021" lat="41.8971984" lon="-71.3684512" version="1"/>
+	<node id="65704911" lat="41.8973741" lon="-71.3674344" version="1"/>
+	
 	<way id="5386504" version="1">
 		<nd ref="622597649"/>
 		<nd ref="8945281129"/>
@@ -55,4 +132,59 @@
 		<tag k="surface" v="asphalt"/>
 		<tag k="wikipedia" v="en:Washington Bridge (Providence, Rhode Island)"/>
 	</way>
+		<way id="8979077" version="1">
+		<nd ref="65638385"/>
+		<nd ref="9446111610"/>
+		<nd ref="9446111611"/>
+		<nd ref="7540467764"/>
+		<nd ref="65664181"/>
+		<nd ref="9446135018"/>
+		<nd ref="9446135019"/>
+		<nd ref="65671907"/>
+		<nd ref="9446135020"/>
+		<nd ref="65639911"/>
+		<nd ref="9446135021"/>
+		<nd ref="65704911"/>
+		<nd ref="65705790"/>
+		<nd ref="65650447"/>
+		<nd ref="8370489793"/>
+		<nd ref="65674905"/>
+		<nd ref="622597718"/>
+		<tag k="attribution" v="Office of Geographic and Environmental Information (MassGIS)"/>
+		<tag k="highway" v="residential"/>
+		<tag k="lanes" v="2"/>
+		<tag k="massgis:way_id" v="149537"/>
+		<tag k="name" v="Scott Street"/>
+		<tag k="source" v="massgis_import_v0.1_20071009100855"/>
+		<tag k="width" v="12.2"/>
+	</way>
+	<way id="1330228243" version="1">
+		<nd ref="12307697010"/>
+		<nd ref="65678108"/>
+		<nd ref="12307697011"/>
+		<tag k="crossing" v="uncontrolled"/>
+		<tag k="crossing:markings" v="yes"/>
+		<tag k="footway" v="crossing"/>
+		<tag k="highway" v="footway"/>
+	</way>
+
+	<way id="1330228242" version="1">
+		<nd ref="12307697000"/>
+		<nd ref="12307696998"/>
+		<nd ref="12307697001"/>
+		<nd ref="12307697002"/>
+		<nd ref="12307697003"/>
+		<nd ref="12307697004"/>
+		<nd ref="12307697005"/>
+		<nd ref="12307697006"/>
+		<nd ref="12307697007"/>
+		<nd ref="12307697011"/>
+		<nd ref="12307697008"/>
+		<nd ref="12307697009"/>
+		<tag k="footway" v="sidewalk"/>
+		<tag k="highway" v="footway"/>
+	</way>
+
+
+
 </osm>
