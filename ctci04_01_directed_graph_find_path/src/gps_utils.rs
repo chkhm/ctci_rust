@@ -1,5 +1,5 @@
 /// Utility functions for GPS calculations
-
+///
 /// Calculates the distance between two GPS coordinates using the Haversine formula.
 ///
 /// # Arguments
@@ -51,11 +51,16 @@ mod tests {
         // Paris (48.8566° N, 2.3522° E) to Berlin (52.5200° N, 13.4050° E)
         // Expected distance: approximately 876 km (876000 meters)
         let distance = calculate_distance(48.8566, 2.3522, 52.5200, 13.4050);
-        assert!((distance - 876000.0).abs() < 5000.0, "Distance should be approximately 876 km");
+        assert!(
+            (distance - 876000.0).abs() < 5000.0,
+            "Distance should be approximately 876 km"
+        );
 
         // Same point should return 0
         let distance_same_point = calculate_distance(45.0, 45.0, 45.0, 45.0);
-        assert!(distance_same_point < 0.000001, "Distance between same points should be 0");
+        assert!(
+            distance_same_point < 0.000001,
+            "Distance between same points should be 0"
+        );
     }
 }
-

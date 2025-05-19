@@ -1,6 +1,6 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
-use crate::graphtraits::{EdgeId, EdgeTriplet, GraphCrud, GraphDisplay, NodeId, Path};
+use crate::graphtraits::{EdgeId, EdgeTriplet, GraphAlgo, GraphCrud, GraphDisplay, NodeId, Path};
 
 pub struct Graph<T> {
     last_id: NodeId,
@@ -168,5 +168,52 @@ impl<T: std::fmt::Display> GraphDisplay<T> for Graph<T> {
             }
         }
         Some(result)
+    }
+}
+
+fn find_directed_path<T>(
+    g: &Graph<T>,
+    start_node: usize,
+    end_node: usize,
+    visited_nodes: &mut HashSet<usize>,
+    path: &mut Vec<usize>,
+) -> bool {
+    if start_node == end_node {
+        return true;
+    }
+    if visited_nodes.contains(&start_node) {
+        return false;
+    }
+    visited_nodes.insert(start_node);
+    path.push(start_node);
+    let n1 = &g.nodes[&start_node];
+    for n in n1.neighbors.iter() {
+        let result = find_directed_path(g, *n, end_node, visited_nodes, path);
+        if result == true {
+            return true;
+        } else {
+            path.pop();
+        }
+    }
+    false
+}
+
+impl<T> GraphAlgo<T> for Graph<T> {
+    fn path_exists(&self, from: NodeId, to: NodeId) -> bool {
+        let mut visited_nodes = HashSet::new();
+        let mut path = Vec::new();
+
+        let found_path = find_directed_path(self, from, to, &mut visited_nodes, &mut path);
+
+        println!("Result: found a path: {} path is {:?}", found_path, path);
+        found_path
+    }
+
+    fn shortest_path(&self, from: NodeId, to: NodeId) -> Option<Path> {
+        todo!()
+    }
+
+    fn all_paths(&self, from: NodeId, to: NodeId) -> Option<Vec<Path>> {
+        todo!()
     }
 }

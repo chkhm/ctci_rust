@@ -1,5 +1,3 @@
-use derive_more::Display;
-
 use std::{collections::HashMap, fs::File, io::BufReader};
 
 use xml::{EventReader, attribute::OwnedAttribute, reader::XmlEvent};
@@ -7,8 +5,6 @@ use xml::{EventReader, attribute::OwnedAttribute, reader::XmlEvent};
 use crate::gps_utils::calculate_distance;
 use crate::{graph::Graph, graphtraits::GraphCrud};
 
-#[derive(Display)]
-#[display("{{ id: {}, lat: {}, lon: {}, version: {} }}", id, lat, lon, version)]
 pub struct OsmNode {
     pub id: usize,
     pub lat: f64,
@@ -16,17 +12,23 @@ pub struct OsmNode {
     pub version: i32,
 }
 
+impl std::fmt::Display for OsmNode {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{{ id: {}, lat: {}, lon: {}, version: {} }}",
+            self.id, self.lat, self.lon, self.version
+        )
+    }
+}
+
 pub fn create_osm_graph() -> Graph<OsmNode> {
     Graph::new()
 }
 
-/// Parses events until the EndElement for this element is found or alternatively EndDocument is found.
-///
-/// # Arguments:
-///
-/// * `parser` - the XML event parser
-/// * `name`   - the name of the current element
-///
+/**
+ * This function parses until the EndDocument for this element is found
+ */
 fn parse_until_end_element(parser: &mut EventReader<BufReader<File>>, name: &str) {
     let mut keep_parsing = true;
     while keep_parsing {
@@ -56,17 +58,6 @@ fn parse_until_end_element(parser: &mut EventReader<BufReader<File>>, name: &str
     }
 }
 
-/// Parses an OSM Node event, and adds it to the graph
-///
-/// # Parameters:
-///
-/// * `parser`     - the XML event parser
-/// * `g`          - the OSM graph to which the node shall be added
-/// * `attributes` - the attributes belonging to the startElement event
-///
-/// # TODO
-///
-/// correctly deal with unwrap
 fn parse_osm_node_event(
     parser: &mut EventReader<BufReader<File>>,
     g: &mut Graph<OsmNode>,
@@ -99,7 +90,6 @@ fn parse_osm_nd_event(
 
 fn parse_osm_way_event(parser: &mut EventReader<BufReader<File>>, g: &mut Graph<OsmNode>) {
     let mut nd_vec = Vec::new();
-    // Part 1: parse the OSM file and collect all nd child elements into a vector
     let mut keep_parsing = true;
     while keep_parsing {
         let event = parser.next();
@@ -129,7 +119,7 @@ fn parse_osm_way_event(parser: &mut EventReader<BufReader<File>>, g: &mut Graph<
             _ => {}
         }
     }
-    // Part 2: Turn all the collected nd elements (way points) into edges and add them to our graph:
+    // now the vec has all the waypoints. Let's add them ass edges
     if nd_vec.len() < 2 {
         return;
     }
@@ -160,7 +150,7 @@ fn parse_osm_body(parser: &mut EventReader<BufReader<File>>, g: &mut Graph<OsmNo
                 } else if name.local_name == "way" {
                     parse_osm_way_event(parser, g);
                 } else {
-                    // ignore all other element types
+                    // ignore unkown element
                     parse_until_end_element(parser, &name.local_name);
                 }
             }
@@ -180,7 +170,7 @@ pub fn parse_osm(parser: &mut EventReader<BufReader<File>>, g: &mut Graph<OsmNod
         match event {
             Ok(XmlEvent::StartElement {
                 name,
-                attributes: _,
+                attributes,
                 namespace: _,
             }) => {
                 if name.local_name == "osm" {
